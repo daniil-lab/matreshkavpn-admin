@@ -3,9 +3,8 @@ FROM node:13
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . ./
-RUN yarn config set network-timeout 300000
-RUN yarn
-RUN yarn build
+RUN npm install --timeout=300000
+RUN npm run build
 
 # Stage - Production
 EXPOSE 8889
