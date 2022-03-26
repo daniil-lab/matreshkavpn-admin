@@ -30,10 +30,10 @@ app.get('*.js', (req, res, next) => {
   next();
 });
 
-app.listen("8889", 'localhost', async err => {
+app.listen(8889, async err => {
   if (err) {
     return logger.error(err.message);
   }
 
-  logger.appStarted("port", "localhost");
+  logger.appStarted("8889", "localhost");
 });
