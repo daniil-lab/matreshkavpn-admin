@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const API = process.env.API || "api.matreshkavpn.com";
+export const API = process.env.API || "http://api.matreshkavpn.com";
 export const ENV = process.env.ENV_NAME || 'dev';
 import { sha256 } from 'js-sha256';
 
