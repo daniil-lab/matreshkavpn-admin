@@ -1,14 +1,12 @@
-FROM node:14.17.0-alpine as build
+FROM node:16
 
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . ./
+RUN apk --no-cache add g++ make libpng-dev
 RUN yarn
 RUN yarn build
 
 # Stage - Production
-FROM nginx:1.17-alpine
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8889
+CMD ["node", "server"]
