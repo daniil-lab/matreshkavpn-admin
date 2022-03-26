@@ -35,5 +35,5 @@ app.listen("8889", 'localhost', async err => {
     return logger.error(err.message);
   }
 
-  logger.appStarted(port, prettyHost);
+  logger.appStarted("port", "localhost");
 });
